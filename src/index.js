@@ -1,20 +1,17 @@
-// Import the React and ReactDOM libraries
 import React from 'react';
 import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
 
-// Create a react component
-const App = () => {
-  const buttonText = 'Click me!';
-  const labelText = 'Enter name:'
+ReactDOM.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+  document.getElementById('root')
+);
 
-  return (
-    <div>
-      <label className="label" htmlFor="name">{labelText}</label>
-      <input id="name" type="text" />
-      <button style={{ backgroundColor: 'blue', color: 'white' }}>{buttonText}</button>
-    </div>
-  );
-};
-
-// Take the react component and show it on the screen
-ReactDOM.render(<App />, document.querySelector('#root'));
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();
