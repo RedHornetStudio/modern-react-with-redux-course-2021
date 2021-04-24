@@ -10,11 +10,15 @@ class App extends React.Component {
   onSearchBarSubmit = async term => {
     const response = await unsplash.get('/search/photos', {
       params: { query: term }
+    }).catch(err => {
+      console.log(`error in fetching photos: ${err.message}`);
     });
 
-    this.setState({ images: response.data.results });
+    if(response) {
+      this.setState({ images: response.data.results });
+    }
   };
-
+  
   render() {
     return (
       <div className="app ui container" style={{ marginTop: '10px' }}>
